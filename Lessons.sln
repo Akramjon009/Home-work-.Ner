@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HttpFirstProject", "HttpFirstProject\HttpFirstProject.csproj", "{4E9A82FC-0B5A-4565-9FD2-8DCFCEE6A03A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lesson Http", "Lesson Http", "{FB7A19A4-A169-44EC-90C8-81971F4FB9B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Muvi", "Muvi\Muvi.csproj", "{EE7FB89D-97C2-4632-A210-878DB8DCC217}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4E9A82FC-0B5A-4565-9FD2-8DCFCEE6A03A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E9A82FC-0B5A-4565-9FD2-8DCFCEE6A03A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E9A82FC-0B5A-4565-9FD2-8DCFCEE6A03A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E9A82FC-0B5A-4565-9FD2-8DCFCEE6A03A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE7FB89D-97C2-4632-A210-878DB8DCC217}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE7FB89D-97C2-4632-A210-878DB8DCC217}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE7FB89D-97C2-4632-A210-878DB8DCC217}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE7FB89D-97C2-4632-A210-878DB8DCC217}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4E9A82FC-0B5A-4565-9FD2-8DCFCEE6A03A} = {FB7A19A4-A169-44EC-90C8-81971F4FB9B2}
+		{EE7FB89D-97C2-4632-A210-878DB8DCC217} = {FB7A19A4-A169-44EC-90C8-81971F4FB9B2}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5062043C-703B-49DA-A683-C0BD84F44C5F}
+	EndGlobalSection
+EndGlobal
