@@ -7,7 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HttpFirstProject", "HttpFir
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lesson Http", "Lesson Http", "{FB7A19A4-A169-44EC-90C8-81971F4FB9B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Muvi", "Muvi\Muvi.csproj", "{EE7FB89D-97C2-4632-A210-878DB8DCC217}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Muvi", "Muvi\Muvi.csproj", "{EE7FB89D-97C2-4632-A210-878DB8DCC217}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lesson telegram bot", "Lesson telegram bot", "{A887ABB9-508A-4466-8439-B41F88BD2374}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelegramBot", "TelegramBot\TelegramBot.csproj", "{FD46BD3D-B180-4595-9603-B1EC4F69206B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +27,10 @@ Global
 		{EE7FB89D-97C2-4632-A210-878DB8DCC217}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE7FB89D-97C2-4632-A210-878DB8DCC217}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE7FB89D-97C2-4632-A210-878DB8DCC217}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD46BD3D-B180-4595-9603-B1EC4F69206B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD46BD3D-B180-4595-9603-B1EC4F69206B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD46BD3D-B180-4595-9603-B1EC4F69206B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD46BD3D-B180-4595-9603-B1EC4F69206B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -30,6 +38,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{4E9A82FC-0B5A-4565-9FD2-8DCFCEE6A03A} = {FB7A19A4-A169-44EC-90C8-81971F4FB9B2}
 		{EE7FB89D-97C2-4632-A210-878DB8DCC217} = {FB7A19A4-A169-44EC-90C8-81971F4FB9B2}
+		{FD46BD3D-B180-4595-9603-B1EC4F69206B} = {A887ABB9-508A-4466-8439-B41F88BD2374}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5062043C-703B-49DA-A683-C0BD84F44C5F}
