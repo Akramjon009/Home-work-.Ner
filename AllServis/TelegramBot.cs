@@ -1,4 +1,4 @@
-﻿  using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Telegram.Bot;
 using Telegram.Bot.Exceptions;
 using Telegram.Bot.Polling;
@@ -135,5 +135,4 @@ public class TelegramBot
             return Task.CompletedTask;
         }
     }
-}
-
+}nb  

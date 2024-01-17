@@ -11,9 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Muvi", "Muvi\Muvi.csproj", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lesson telegram bot", "Lesson telegram bot", "{A887ABB9-508A-4466-8439-B41F88BD2374}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NBUwithbot", "NBUwithbot\NBUwithbot.csproj", "{86F2F325-69C8-470A-B19D-0D85B69A3A1F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NBUwithbot", "NBUwithbot\NBUwithbot.csproj", "{86F2F325-69C8-470A-B19D-0D85B69A3A1F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AllServis", "AllServis\AllServis.csproj", "{40C16B52-FB80-4396-865B-07A47F11CE4E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AllServis", "AllServis\AllServis.csproj", "{40C16B52-FB80-4396-865B-07A47F11CE4E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostcCreater", "PostcCreater\PostcCreater.csproj", "{93CDE896-1F48-4C1B-8B8C-82AA9DCED987}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +39,10 @@ Global
 		{40C16B52-FB80-4396-865B-07A47F11CE4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40C16B52-FB80-4396-865B-07A47F11CE4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40C16B52-FB80-4396-865B-07A47F11CE4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93CDE896-1F48-4C1B-8B8C-82AA9DCED987}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93CDE896-1F48-4C1B-8B8C-82AA9DCED987}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93CDE896-1F48-4C1B-8B8C-82AA9DCED987}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93CDE896-1F48-4C1B-8B8C-82AA9DCED987}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +52,7 @@ Global
 		{EE7FB89D-97C2-4632-A210-878DB8DCC217} = {FB7A19A4-A169-44EC-90C8-81971F4FB9B2}
 		{86F2F325-69C8-470A-B19D-0D85B69A3A1F} = {A887ABB9-508A-4466-8439-B41F88BD2374}
 		{40C16B52-FB80-4396-865B-07A47F11CE4E} = {A887ABB9-508A-4466-8439-B41F88BD2374}
+		{93CDE896-1F48-4C1B-8B8C-82AA9DCED987} = {A887ABB9-508A-4466-8439-B41F88BD2374}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5062043C-703B-49DA-A683-C0BD84F44C5F}
