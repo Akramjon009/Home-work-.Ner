@@ -55,7 +55,7 @@ internal class Program
 
         var receiverOptions = new ReceiverOptions
         {
-            AllowedUpdates = { } // receive all update types
+            AllowedUpdates = { } 
         };
         botClientDev.StartReceiving(
             HandleUpdateAsync,
@@ -128,7 +128,6 @@ internal class Program
                     new []
                     {
                         InlineKeyboardButton.WithUrl(text: "Canale 1", url: "https://t.me/Abduvahobov09"),
-                        //InlineKeyboardButton.WithUrl(text: "Canale 2", url: "https://t.me/tutorialbotprogramming"),
                     },
                 });
 
