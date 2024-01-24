@@ -13,12 +13,10 @@ internal class Program
 
         var botClientDev = new TelegramBotClient("6909069659:AAG11DnALOYYhqT5qYPdK4pNeNZpBGXsl4s");
 
-        //block 
         int blockLevel = 0;
         bool messDeleted = false;
       
 
-        //Time
         int year;
         int month;
         int day;
@@ -26,7 +24,6 @@ internal class Program
         int minute;
         int second;
 
-        //Messages and user info
         long chatId = 0;
         string messageText;
         int messageId;
@@ -35,11 +32,9 @@ internal class Program
         long id;
         Message sentMessage;
 
-        //poll info
         int pollId = 0;
 
 
-        //Read time and save variables
         year = int.Parse(DateTime.UtcNow.Year.ToString());
         month = int.Parse(DateTime.UtcNow.Month.ToString());
         day = int.Parse(DateTime.UtcNow.Day.ToString());
@@ -49,7 +44,6 @@ internal class Program
         Console.WriteLine("Data: " + year + "/" + month + "/" + day);
         Console.WriteLine("Time: " + hour + ":" + minute + ":" + second);
 
-        //cts token
         using var cts = new CancellationTokenSource();
 
         var receiverOptions = new ReceiverOptions
@@ -64,32 +58,27 @@ internal class Program
 
         var me = await botClientDev.GetMeAsync();
 
-        //write on console a hello message by bot 
         Console.WriteLine($"\nHello! I'm {me.Username} and i'm your Bot!");
 
-        // Send cancellation request to stop bot and close console
         Console.ReadKey();
         cts.Cancel();
 
-        //----------------------//
 
-        //Answer of the bot to the input.
         async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
         {
-
-            //set variables
-            chatId = update.Message.Chat.Id;
-            messageText = update.Message.Text;
-            messageId = update.Message.MessageId;
-            firstName = update.Message.From.FirstName;
-            lastName = update.Message.From.LastName;
-            id = update.Message.From.Id;
-            year = update.Message.Date.Year;
-            month = update.Message.Date.Month;
-            day = update.Message.Date.Day;
-            hour = update.Message.Date.Hour;
-            minute = update.Message.Date.Minute;
-            second = update.Message.Date.Second;
+            var message = update.Message;
+            chatId = message.Chat.Id;
+            messageText = message.Text;
+            messageId = message.MessageId;
+            firstName = message.From.FirstName;
+            lastName = message.From.LastName;
+            id = message.From.Id;
+            year = message.Date.Year;
+            month = message.Date.Month;
+            day = message.Date.Day;
+            hour = message.Date.Hour;
+            minute = message.Date.Minute;
+            second = message.Date.Second;
 
             string Homework_datatime=("\nData message --> " + year + "/" + month + "/" + day + " - " + hour + ":" + minute + ":" + second);
             Console.WriteLine($"Received a '{messageText}' message in chat {chatId} from user:\n" + firstName + " - " + lastName + " - " + " 5873853");
