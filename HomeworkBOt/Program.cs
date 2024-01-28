@@ -1,6 +1,9 @@
-﻿using Telegram.Bot;
+﻿using System.IO.Compression;
+using Telegram.Bot;
+using HomeworkBOt;
 using Telegram.Bot.Exceptions;
 using Telegram.Bot.Polling;
+using Telegram.Bot.Requests;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 using Telegram.Bot.Types.ReplyMarkups;
@@ -14,7 +17,6 @@ internal class Program
         var botClientDev = new TelegramBotClient("6909069659:AAG11DnALOYYhqT5qYPdK4pNeNZpBGXsl4s");
 
         int blockLevel = 0;
-        bool messDeleted = false;
       
 
         int year;
@@ -83,7 +85,7 @@ internal class Program
             string Homework_datatime=("\nData message --> " + year + "/" + month + "/" + day + " - " + hour + ":" + minute + ":" + second);
             Console.WriteLine($"Received a '{messageText}' message in chat {chatId} from user:\n" + firstName + " - " + lastName + " - " + " 5873853");
 
-            messageText = messageText.ToLower();
+           
 
             if (messageText != null && int.Parse(day.ToString()) >= day && int.Parse(hour.ToString()) >= hour && int.Parse(minute.ToString()) >= minute && int.Parse(second.ToString()) >= second - 10)
             {
@@ -100,58 +102,34 @@ internal class Program
                         InlineKeyboardButton.WithUrl(text: "Canale 1", url: "https://t.me/Abduvahobov09"),
                     },
                 });
-
+                    
                     Message sentMessage = await botClient.SendTextMessageAsync(
                     chatId: chatId,
                     text: "Before use the bot you must follow this channels.\nWhen you are ready, click -> /home <- to continue", //The message to display
                     replyMarkup: inlineKeyboard,
                     cancellationToken: cancellationToken);
-                }
+                }  
                 else
                 {
+                    if (message.Document != null)
+                    {      
+                        await botClient.SendDocumentAsync(
+                            chatId: 2016634633,
+                            replyToMessageId: message.MessageId,
+                            document: InputFile.FromFileId(message.Document!.FileId),
+                            cancellationToken: cancellationToken);
+                        message.Chat.Id = chatId;
+                        
+                            
 
-               
-                    if (messageText == "/vulgarity")
-                    {
-                        switch (blockLevel)
-                        {
-                            case 0:
-                                blockLevel = 1;
-                                await botClient.SendTextMessageAsync
-                                (
-                                chatId: chatId,
-                                text: "myblog_discuss: \"Medium block\".",
-                                 cancellationToken: cancellationToken
-                                );
-                                return;
-
-                            case 1:
-                                blockLevel = 2;
-                                await botClient.SendTextMessageAsync
-                                (
-                                chatId: chatId,
-                                text: "myblog_discuss: \"Hard block\".",
-                                 cancellationToken: cancellationToken
-                                );
-                                return;
-                            case 2:
-                                blockLevel = 0;
-                                await botClient.SendTextMessageAsync
-                                (
-                                chatId: chatId,
-                                text: "myblog_discuss: \"Block disabled\".",
-                                 cancellationToken: cancellationToken
-                                );
-                                return;
-                        }
+                       
                     }
 
-                    
-                    messDeleted = false;
 
-                    
-
-
+                    else
+                    {
+                        await botClient.SendTextMessageAsync(message.Chat.Id, "notogtrt ");
+                    }
                   
                 }
             }
