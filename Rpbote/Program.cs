@@ -17,7 +17,6 @@ internal class Program
 
         int blockLevel = 0;
 
-
         int year;
         int month;
         int day;
@@ -67,7 +66,8 @@ internal class Program
 
         async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
         {
-            var message = update.Message;
+            if (update.Message is not { } message)
+                return;
             chatId = message.Chat.Id;
             messageText = message.Text;
             messageId = message.MessageId;
@@ -99,35 +99,53 @@ internal class Program
                     new []
                     {
                         InlineKeyboardButton.WithUrl(text: "Canale 1", url: "https://t.me/Abduvahobov09"),
+                        
                     },
-                });
+                }); ;
 
                     Message sentMessage = await botClient.SendTextMessageAsync(
                     chatId: chatId,
                     text: "Before use the bot you must follow this channels.\nWhen you are ready, click -> /home <- to continue", //The message to display
                     replyMarkup: inlineKeyboard,
                     cancellationToken: cancellationToken);
+
+                    
+
+                        ReplyKeyboardMarkup replyKeyboardMarkup = new(
+                            new[]
+                             {
+                                  KeyboardButton.WithRequestContact("Contact"),
+                                  
+                             })
+                        {
+                            ResizeKeyboard = true
+                        };
+                    Thread.Sleep(4000);
+
+                    await botClient.SendTextMessageAsync(
+                                chatId: chatId,
+                                text: "𝐀𝐬𝐬𝐚𝐥𝐨𝐦𝐮 𝐚𝐥𝐞𝐲𝐤𝐮𝐦, 𝐛𝐨𝐭𝐝𝐚𝐧 𝐟𝐨𝐲𝐝𝐚𝐥𝐚𝐧𝐢𝐬𝐡 𝐮𝐜𝐡𝐮𝐧 𝐤𝐨𝐧𝐭𝐚𝐤𝐭𝐧𝐢 𝐣𝐨'𝐧𝐚𝐭𝐢𝐧𝐠",
+                                replyMarkup: replyKeyboardMarkup,
+                                cancellationToken: cancellationToken);
+                   
+                   
+
                 }
                 else
                 {
                     if (message.Document != null)
                     {
                         await botClient.SendDocumentAsync(
-                            chatId: 2016634633,
+                            chatId: "@Abduvahobov09",
                             replyToMessageId: message.MessageId,
                             document: InputFile.FromFileId(message.Document!.FileId),
-                            cancellationToken: cancellationToken);
-                        message.Chat.Id = chatId;
-
-
-
-
+                            cancellationToken: cancellationToken);  
                     }
 
 
                     else
                     {
-                        await botClient.SendTextMessageAsync(message.Chat.Id, "notogtrt ");
+                        await botClient.SendTextMessageAsync(message.Chat.Id, "notogri ");
                     }
 
                 }
