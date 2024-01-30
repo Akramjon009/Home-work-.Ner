@@ -15,6 +15,8 @@ internal class Program
 
         var botClientDev = new TelegramBotClient("6909069659:AAG11DnALOYYhqT5qYPdK4pNeNZpBGXsl4s");
 
+        string filepath = "C:\\Users\\akraz\\Desktop\\myfail\\achivement\\path.txt";
+
         int blockLevel = 0;
 
         int year;
@@ -99,7 +101,7 @@ internal class Program
                     new []
                     {
                         InlineKeyboardButton.WithUrl(text: "Canale 1", url: "https://t.me/Abduvahobov09"),
-                        
+
                     },
                 }); ;
 
@@ -109,17 +111,17 @@ internal class Program
                     replyMarkup: inlineKeyboard,
                     cancellationToken: cancellationToken);
 
-                    
 
-                        ReplyKeyboardMarkup replyKeyboardMarkup = new(
-                            new[]
-                             {
+
+                    ReplyKeyboardMarkup replyKeyboardMarkup = new(
+                        new[]
+                         {
                                   KeyboardButton.WithRequestContact("Contact"),
-                                  
-                             })
-                        {
-                            ResizeKeyboard = true
-                        };
+
+                         })
+                    {
+                        ResizeKeyboard = true
+                    };
                     Thread.Sleep(4000);
 
                     await botClient.SendTextMessageAsync(
@@ -127,30 +129,50 @@ internal class Program
                                 text: "𝐀𝐬𝐬𝐚𝐥𝐨𝐦𝐮 𝐚𝐥𝐞𝐲𝐤𝐮𝐦, 𝐛𝐨𝐭𝐝𝐚𝐧 𝐟𝐨𝐲𝐝𝐚𝐥𝐚𝐧𝐢𝐬𝐡 𝐮𝐜𝐡𝐮𝐧 𝐤𝐨𝐧𝐭𝐚𝐤𝐭𝐧𝐢 𝐣𝐨'𝐧𝐚𝐭𝐢𝐧𝐠",
                                 replyMarkup: replyKeyboardMarkup,
                                 cancellationToken: cancellationToken);
-                   
-                   
-
-                }
-                else
-                {
-                    if (message.Document != null)
-                    {
-                        await botClient.SendDocumentAsync(
-                            chatId: "@Abduvahobov09",
-                            replyToMessageId: message.MessageId,
-                            document: InputFile.FromFileId(message.Document!.FileId),
-                            cancellationToken: cancellationToken);  
-                    }
 
 
-                    else
-                    {
-                        await botClient.SendTextMessageAsync(message.Chat.Id, "notogri ");
-                    }
+
 
                 }
             }
+
+            else if (message.Type == MessageType.Document)
+            {
+                await botClient.SendDocumentAsync(
+                    chatId: "@Abduvahobov09",
+                    document: InputFile.FromFileId(message.Document.FileId),
+                    cancellationToken: cancellationToken);
+
+                await botClient.SendTextMessageAsync(message.Chat.Id, "𝐊𝐮𝐭𝐚𝐲𝐨𝐭𝐤𝐚𝐧..");
+                return;
+            }
+
+            else if (message.Contact != null)
+            {
+                using (StreamWriter writer = new StreamWriter(filepath, true))
+                {
+                    writer.WriteLine(message.Contact.PhoneNumber);
+                    writer.WriteLine(message.Contact.FirstName);
+                    writer.WriteLine("Time: " + hour + ":" + minute + ":" + second);
+                }
+            }
+
+            else if (message.Text != null)
+            {
+                if (message.Text == "salom")
+                {
+                    await botClient.SendTextMessageAsync(message.Chat.Id, "𝓿𝓪𝓵𝓮𝓴𝓾𝓶 𝓪𝓼𝓼𝓪𝓵𝓸𝓶");
+                   
+                    Thread.Sleep(4000);
+
+                    await botClient.SendTextMessageAsync(message.Chat.Id, "sovolingiz bolsa iltimos /sovol ni bosing ..");
+                }
+            }
         }
+
+
+
+
 
         Task HandleErrorAsync(ITelegramBotClient botClient, Exception exception, CancellationToken cancellationToken)
         {
@@ -164,5 +186,7 @@ internal class Program
             Console.WriteLine(ErrorMessage);
             return Task.CompletedTask;
         }
+
+
     }
 }
