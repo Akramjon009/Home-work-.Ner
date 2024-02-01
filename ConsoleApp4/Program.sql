@@ -1,4 +1,39 @@
-﻿--1
+﻿-- clastered non clastered
+Jismoniy tashkilot:
+
+Jadvaldagi ma'lumotlar klasterlangan indeks qiymatlariga ko'ra jismoniy tartiblangan.
+Jadval va klasterli indeks yagona jismoniy ma'lumotlar strukturasini ifodalaydi.
+Ishlash:
+
+Ma'lumotlarni olish uchun so'rovlar odatda tezroq bo'ladi, chunki ma'lumotlar allaqachon indeks tartibi bo'yicha tartiblangan.
+Klasterli indeks bilan diapazon so'rovlari va saralash ko'pincha samaraliroq bo'ladi.
+Cheklovlar:
+
+Jadvalda faqat bitta klasterli indeks bo'lishi mumkin, chunki ma'lumotlar faqat bitta tartibda jismonan tartibga solinishi mumkin.
+Kamchiliklari:
+
+Yangi ma'lumotlarni kiritish yoki mavjud ma'lumotlarni yangilash qatorlarni ko'chirishni talab qilishi mumkin, bu esa qo'shimcha manba xarajatlarini talab qilishi mumkin.
+Klasterli bo'lmagan indeks:
+Mantiqiy ajratish:
+
+Jadvaldagi ma'lumotlar klasterli bo'lmagan indeks tartibida jismonan tartiblanmagan. Indeksda ma'lumotlarning haqiqiy joylashuviga ishora qiluvchi tuzilma mavjud.
+Indeks tuzilishi haqiqiy ma'lumotlardan alohida saqlanadi.
+Ishlash:
+
+Klasterli bo'lmagan indeks orqali ma'lumotlarni qidirish qo'shimcha operatsiyalarni talab qilishi mumkin, ammo bu indeks tartibiga mos kelmaydigan so'rovlar uchun samarali bo'lishi mumkin.
+Bir nechta indekslar:
+
+Jadvalda bir nechta klasterli bo'lmagan indekslar bo'lishi mumkin, bu unga har xil turdagi so'rovlarni qo'llab-quvvatlash imkonini beradi.
+Yangilanishlar va qo'shimchalar:
+
+Yangi ma'lumotlarni kiritish yoki mavjud ma'lumotlarni yangilash ko'pincha arzonroq, chunki qatorlarni ko'chirishga hojat yo'q.
+Foydalanish misoli:
+
+Klasterli bo'lmagan indeks ma'lum bir ustunda qidirishni tezlashtirishni xohlasangiz foydali bo'ladi, lekin siz ma'lumotlarning jismoniy tartibini o'zgartirishni xohlamaysiz.
+
+
+
+--1
 SELECT ID,
     CASE
 		WHEN P_ID IS NULL THEN 'Root'
