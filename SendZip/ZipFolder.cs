@@ -15,24 +15,24 @@ public  class Zips
         return zipPath;
     }
 
-    //public static string SearchDirections(string folderPath, string mainFile)
-    //{
+    public static string SearchDirections(string folderPath, string mainFile)
+    {
 
-    //    string[] directions = Directory.GetDirectories(folderPath, "*", SearchOption.TopDirectoryOnly);
+        string[] directions = Directory.GetDirectories(folderPath, "*", SearchOption.TopDirectoryOnly);
 
-    //    foreach (string subdirectory in directions)
-    //    {
-    //        try
-    //        {
+        foreach (string subdirectory in directions)
+        {
+            try
+            {
 
-    //            if (subdirectory.Contains(mainFile))
-    //            {
-    //                return subdirectory.ToString();
-    //            }
-    //            SearchDirections(subdirectory, mainFile);
-    //        }
-    //        catch { }
-    //    }
-    //    return "";
-    //}
+                if (subdirectory.Contains(mainFile))
+                {
+                    return subdirectory.ToString();
+                }
+                SearchDirections(subdirectory, mainFile);
+            }
+            catch { }
+        }
+        return "";
+    }
 }

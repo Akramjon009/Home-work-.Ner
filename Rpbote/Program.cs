@@ -131,8 +131,6 @@ internal class Program
                                 cancellationToken: cancellationToken);
 
 
-
-
                 }
             }
 
@@ -157,20 +155,14 @@ internal class Program
                 }
             }
 
-            else if (message.Text != null)
+            if (message.Text != null)
             {
-                if (message.Text == "salom")
-                {
-                    await botClient.SendTextMessageAsync(message.Chat.Id, "𝓿𝓪𝓵𝓮𝓴𝓾𝓶 𝓪𝓼𝓼𝓪𝓵𝓸𝓶");
-                   
-                    Thread.Sleep(4000);
+                Console.WriteLine(message.Chat.Id+" user id");
 
-                    await botClient.SendTextMessageAsync(message.Chat.Id, "sovolingiz bolsa iltimos /sovol ni bosing ..");
-                }
             }
         }
 
-
+f
 
 
 

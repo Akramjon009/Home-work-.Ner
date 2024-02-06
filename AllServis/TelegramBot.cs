@@ -10,7 +10,7 @@ using io = System.IO;
 
 public class TelegramBot
 {
-    TelegramBotClient botClient = new TelegramBotClient("6441699070:AAGE-Ibpj5U0zeQ6Gbf6j74PrS1Abbr-_Sk");
+    TelegramBotClient botClient = new TelegramBotClient("6909069659:AAG11DnALOYYhqT5qYPdK4pNeNZpBGXsl4s");
     public bool IsEnter { get; set; } = false;
     public async Task MainFunction()
     {
