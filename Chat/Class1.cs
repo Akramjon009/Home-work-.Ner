@@ -45,10 +45,10 @@ namespace Chat
 
                 var result = cmd.ExecuteReader();
 
-                password = HashPasword(password, out var salt);
+                password = HashPasword(password);
                 while (result.Read())
                 {
-                    if (password == result[0].ToString().Trim())
+                    if (password.ToLower().Trim() == result[0].ToString().Trim().ToLower())
                     {
                         return true;
                     }
@@ -81,7 +81,7 @@ namespace Chat
         {
             NpgsqlConnection connection = new NpgsqlConnection(connectionString);
             connection.Open();
-            password = HashPasword(password, out var salt);
+            password = HashPasword(password);
             string query = $"insert into users(name,password) values('{name}','{password}')";
             using NpgsqlCommand cmd = new NpgsqlCommand(query, connection);
 
@@ -100,19 +100,19 @@ namespace Chat
         }
         
             
-        public static string HashPasword(string password, out byte[] salt)
+        public static string HashPasword(string password)
         {
-            HashAlgorithmName hashAlgorithm = HashAlgorithmName.SHA512;
-            const int keySize = 64;
-            const int iterations = 350000;
-                salt = RandomNumberGenerator.GetBytes(keySize);
-                var hash = Rfc2898DeriveBytes.Pbkdf2(
-                    Encoding.UTF8.GetBytes(password),
-                    salt,
-                    iterations,
-                    hashAlgorithm,
-                    keySize);
-                return Convert.ToHexString(hash);
+            StringBuilder builder = new StringBuilder();
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+
+                for (int i = 0; i < bytes.Length; i++)
+                {
+                    builder.Append(bytes[i].ToString("x2")); // Convert byte to hexadecimal string
+                }
+            }
+            return builder.ToString();
         } 
 
         

@@ -99,7 +99,7 @@ public class Program
             }
             Thread.Sleep(2000);
             Console.Clear();
-
+    
         }
 
     }
