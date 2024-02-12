@@ -1,11 +1,10 @@
-﻿using Npgsql;
-using System.Transactions;
-
-internal class Chat
+﻿using Chat;
+public class Program
 {
     public static void Main(string[] args)
     {
        
+
         string pgConnector = "Host=localhost;Port=5432;Database=TestDB;username=postgres;Password=Akramjon_09;";
         while (true)
         {
@@ -17,14 +16,14 @@ internal class Chat
                 Console.Clear();
                 Console.WriteLine("Enter your name");
                 string name = Console.ReadLine();
-                if (CheckName(pgConnector, name))
+                if (Class1.CheckName(pgConnector, name))
                 {
                     Console.WriteLine("Enter your password");
                     string password = Console.ReadLine();
 
-                    if (Checkpassword(pgConnector, password))
+                    if (Class1.Checkpassword(pgConnector, password))
                     {
-                        GetAll(pgConnector);
+                        Class1.GetAll(pgConnector);
                         while (true)
                         {
                             Console.WriteLine("1)Enter message 2)Back");
@@ -35,7 +34,7 @@ internal class Chat
                                 string message = Console.ReadLine();
                                 Thread.Sleep(2000);
                                 Console.Clear();
-                                CreateMessage(pgConnector, name, message);
+                                Class1.CreateMessage(pgConnector, name, message);
                             }
                             else if ("2" == userscheack)
                             {
@@ -60,14 +59,14 @@ internal class Chat
                 Console.Clear();
                 Console.WriteLine("Enter your name ");
                 string name = Console.ReadLine();
-                if (!CheckName(pgConnector, name))
+                if (!Class1.CheckName(pgConnector, name))
                 {
                     Console.WriteLine("Enter password");
                     string password = Console.ReadLine();
                     Thread.Sleep(2000);
                     Console.Clear();
-                    Create(pgConnector, name, password);
-                    GetAll(pgConnector);
+                    Class1.Create(pgConnector, name, password);
+                    Class1.GetAll(pgConnector);
                     while (true)
                     {
                         Console.WriteLine("1)Enter message 2)Back");
@@ -78,7 +77,7 @@ internal class Chat
                             string message = Console.ReadLine();
                             Thread.Sleep(2000);
                             Console.Clear();
-                            CreateMessage(pgConnector, name, message);
+                            Class1.CreateMessage(pgConnector, name, message);
                         }
                         else if ("2" == userscheack)
                         {
@@ -90,7 +89,7 @@ internal class Chat
                 }
 
             }
-            else if (check == "3") 
+            else if (check == "3")
             {
                 break;
             }
@@ -98,99 +97,10 @@ internal class Chat
             {
                 Console.WriteLine("Enter right number ");
             }
-            Thread.Sleep (2000);
+            Thread.Sleep(2000);
             Console.Clear();
 
         }
 
-    }
-    public static bool CheckName(string connectionString, string name)
-    {
-        using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
-        {
-            connection.Open();
-
-
-            string query = $"select  name from users;";
-            using NpgsqlCommand cmd = new NpgsqlCommand(query, connection);
-
-            var result = cmd.ExecuteReader();
-
-
-            while (result.Read())
-            {
-                Console.WriteLine(result[0].ToString());
-                if (name == result[0].ToString().Trim()) 
-                {
-                    return true;
-                }
-            }
-            return false;
-
-        }
-    }
-    public static bool Checkpassword(string connectionString, string password)
-    {
-        using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
-        {
-
-            connection.Open();
-
-            string query = $"select password from users;";
-            using NpgsqlCommand cmd = new NpgsqlCommand(query, connection);
-
-            var result = cmd.ExecuteReader();
-
-
-            while (result.Read())
-            {
-                if (password == result[0].ToString().Trim())
-                {
-                    return true;
-                }
-            }
-            return false;
-
-        }
-    }
-    public static void GetAll(string connectionString)
-    {
-
-        using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
-        { 
-            connection.Open();
-            string query = $"select * from Message;";
-            using NpgsqlCommand cmd = new NpgsqlCommand(query, connection);
-
-            var result = cmd.ExecuteReader();
-
-           
-            while (result.Read())
-            {
-                Console.WriteLine(result[0] + "\n\t" + result[1]);
-            }
-
-
-        }
-    }
-    public static void Create(string connectionString,string name,string password) 
-    {
-        NpgsqlConnection connection = new NpgsqlConnection(connectionString);
-        connection.Open();
-        string query = $"insert into users(name,password) values('{name}','{password}')";
-        using NpgsqlCommand cmd = new NpgsqlCommand(query, connection);
-
-        var result = cmd.ExecuteReader();
-        connection.Close();
-    }
-    public static void CreateMessage(string connectionString, string name, string message)
-    {
-        NpgsqlConnection connection = new NpgsqlConnection(connectionString);
-        connection.Open();
-        string query = $"insert into message(name,message) values('{name}','{message}')";
-        using NpgsqlCommand cmd = new NpgsqlCommand(query, connection);
-
-        var result = cmd.ExecuteReader();
-        GetAll(connectionString);
     }
 }
