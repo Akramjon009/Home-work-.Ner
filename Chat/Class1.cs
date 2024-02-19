@@ -89,7 +89,7 @@ namespace Chat
             string query = $"insert into users(name,password,solt) values('{name}','{password},'{Convert.ToHexString(salt)}')";
             using NpgsqlCommand cmd = new NpgsqlCommand(query, connection);
 
-            var result = cmd.ExecuteReader();
+            cmd.ExecuteNonQuery();
             connection.Close();
         }
         public static void CreateMessage(string connectionString, string name, string message)
