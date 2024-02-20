@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            #region first project 
+            #region first task
             //IEnumerable<int> numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
             //int i = 0;
 
@@ -15,7 +15,10 @@
             //    Console.WriteLine(x);
             //}
             #endregion
-            
+
+            #region second task
+            Methods.WorkerList();
+            #endregion
         }
     }           
 }
