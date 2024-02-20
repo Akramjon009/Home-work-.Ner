@@ -45,7 +45,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Home_work", "Home_work\Home
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LINQexample", "LINQexample\LINQexample.csproj", "{30EB83C9-C21B-4481-A693-8978BDE14050}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ddos", "ddos\ddos.csproj", "{C941CA64-3275-4F5A-959E-08DCAC535820}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Firstproject", "ddos\Firstproject.csproj", "{C941CA64-3275-4F5A-959E-08DCAC535820}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "intertaiment", "intertaiment", "{4644D1C8-D9D4-4975-9692-46BEA52638E4}"
 EndProject
