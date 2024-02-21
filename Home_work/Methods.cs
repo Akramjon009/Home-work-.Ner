@@ -12,7 +12,7 @@ namespace Home_work
         public static void WorkerList()
         {
             var joindata = Info.GetWorker().Join(Info.LanguageList(), wrk => wrk.language_id,
-                ln => ln.id, (WorkerList, LanguageList) => new { WorkerList.name, LanguageList.LanguageName });
+                ln => ln.id, (WorkerList, LanguageList) => new { WorkerList.name, LanguageList.LanguageName }).Where(n => n.LanguageName == "C#");
             foreach (var worker in joindata)
             {
                 Console.WriteLine(worker.name + " -> " + worker.LanguageName);
