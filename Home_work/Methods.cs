@@ -1,8 +1,14 @@
-﻿namespace Home_work
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Home_work
 {
     public static class Methods
     {
-        
+       
         public static void WorkerList()
         {
             var joindata = Info.GetWorker().Join(Info.LanguageList(), wrk => wrk.language_id,
